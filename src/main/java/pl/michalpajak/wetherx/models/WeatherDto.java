@@ -9,6 +9,8 @@ import lombok.Data;
 public class WeatherDto {
 
     @JsonProperty("main")
-    public WeatherMain mainData;
+    private WeatherMain mainData;
+    @JsonProperty("clouds")
+    private Clouds clouds;
 
 }

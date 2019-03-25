@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather</title>
+</head>
+<body>
+<h1 th:if="${weather != null}" th:text="'Temperatura: ' + ${weather.getMainData().getTemp()}"></h1>
+<h1 th:if="${weather != null}" th:text="'Ciśnienie: ' + ${weather.getMainData().getPressure()}"></h1>
+<h1 th:if="${weather != null}" th:text="'Wilgotność: ' + ${weather.getMainData().getHumidity()}"></h1>
+<h1 th:if="${weather != null}" th:text="'Zachmurzenie: ' + ${weather.getClouds().getAll()}"></h1>
+
+<img th:if="${weather != null && (weather.getMainData().getTemp() > 20.0)}" src="plaza.gif">
+<img th:if="${weather != null && (weather.getMainData().getTemp() > 5.0 && weather.getMainData().getTemp() <= 20.0)}" src="sweter.gif">
+<img th:if="${weather != null && (weather.getMainData().getTemp() <= 5.0)}" src="zima.gif">
+
+<form action="/" method="post"><div>
+    <table bgcolor="silver">
+        <tr>
+            <td>Podaj miasto:</td><td><input type="text" name="city"></td>
+        </tr>
+        <tr>
+            <br>
+            <td colspan="3" align="center"><br>
+                <input type="submit" value="Wyszukaj">
+                <input type="reset" value="Wyczyść">
+            </td>
+        </tr>
+    </table>
+</div></form>
+</body>
+</html>

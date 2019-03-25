@@ -9,6 +9,7 @@
 <h1 th:if="${weather != null}" th:text="'Ciśnienie: ' + ${weather.getMainData().getPressure()}"></h1>
 <h1 th:if="${weather != null}" th:text="'Wilgotność: ' + ${weather.getMainData().getHumidity()}"></h1>
 <h1 th:if="${weather != null}" th:text="'Zachmurzenie: ' + ${weather.getClouds().getAll()}"></h1>
+<h1 th:if="${weather != null}" th:text="'Średnia temperatura: ' + ${averageTemperature}"></h1>
 
 <img th:if="${weather != null && (weather.getMainData().getTemp() > 20.0)}" src="plaza.gif">
 <img th:if="${weather != null && (weather.getMainData().getTemp() > 5.0 && weather.getMainData().getTemp() <= 20.0)}" src="sweter.gif">

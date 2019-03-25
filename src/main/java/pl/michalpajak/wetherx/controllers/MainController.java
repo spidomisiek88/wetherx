@@ -28,7 +28,10 @@ public class MainController {
     public String weather(@RequestParam("city") String city, Model model) {
 
         model.addAttribute("weather", weatherService.getCurrentWeather(city));
+        model.addAttribute("averageTemperature", weatherService.getAverageTemperature(weatherService.getForecastWeather(city)));
 
         return "weather_view";
     }
+
+
 }
